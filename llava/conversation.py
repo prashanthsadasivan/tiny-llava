@@ -369,6 +369,17 @@ Answer the questions.""",
     sep="<|im_end|>",
 )
 
+conv_tiny_llama_chat = Conversation(
+    system="""<|system|>A chat between a curious user and an observant artificial intelligence assistant. The assistant gives helpful, detailed, polite, direct answers to the user's questions""",
+    roles=("<|user|>\n", "<|assistant|>\n"),
+    version="tiny_llama",
+    #messages=[["<|user|>\n", "What are the key differences between renewable and non-renewable energy sources?"],["<|assistant|>\n", "the main differences have to do with price and quantity"]],
+    messages=(),
+    offset=0,
+    sep_style=SeparatorStyle.MPT,
+    sep="</s>\n", # todo: is the newline needed?
+)
+
 default_conversation = conv_vicuna_v1
 conv_templates = {
     "default": conv_vicuna_v0,
@@ -376,6 +387,7 @@ conv_templates = {
     "v1": conv_vicuna_v1,
     "vicuna_v1": conv_vicuna_v1,
     "llama_2": conv_llama_2,
+    "tiny_llama": conv_tiny_llama_chat,
     "mistral_instruct": conv_mistral_instruct,
     "chatml_direct": conv_chatml_direct,
     "mistral_direct": conv_chatml_direct,
