@@ -370,7 +370,7 @@ Answer the questions.""",
 )
 
 conv_tiny_llama_chat = Conversation(
-    system="""<|system|>A chat between a curious user and an observant artificial intelligence assistant. The assistant gives helpful, detailed, polite, direct answers to the user's questions""",
+    system="""<|system|>\nA chat between a curious user and an observant artificial intelligence assistant. The assistant gives helpful, detailed, polite, direct answers to the user's questions""",
     roles=("<|user|>\n", "<|assistant|>\n"),
     version="tiny_llama",
     #messages=[["<|user|>\n", "What are the key differences between renewable and non-renewable energy sources?"],["<|assistant|>\n", "the main differences have to do with price and quantity"]],
@@ -380,7 +380,7 @@ conv_tiny_llama_chat = Conversation(
     sep="</s>\n", # todo: is the newline needed?
 )
 
-default_conversation = conv_vicuna_v1
+default_conversation = conv_tiny_llama_chat
 conv_templates = {
     "default": conv_vicuna_v0,
     "v0": conv_vicuna_v0,
